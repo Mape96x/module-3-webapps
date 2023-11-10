@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+header {
+  position: relative;
+  background-color: rgb(255, 230, 0);
+  padding: 0.1rem 1rem;
+}
+main {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+#reset {
+  position: absolute;
+  top: 2.5rem;
+  right: 1rem;
+  font-size: 1.5rem;
+}
+#grow {
+  font-size: 10rem;
+}
+div {
+}

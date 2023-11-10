@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: white;
+  transition: background-color 2s ease-in-out;
+}
+.btn {
+  background-color: white;
+  padding: 0.3em 1em;
+  font-size: 1.75em;
+  border: 0.15em solid black;
+}
+.btnClick {
+  padding: 0.3em 1em;
+  font-size: 1.75em;
+  color: white;
+  background-color: darkgray;
+  box-shadow: yellow 0px 8px 24px;
+}
+.bodyClick {
+  background-color: Black;
+}

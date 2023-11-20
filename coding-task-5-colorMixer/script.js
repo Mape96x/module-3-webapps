@@ -7,13 +7,17 @@ const i2 = document.getElementById("i2").value;
 const i3 = document.getElementById("i3").value;
 
 head.style.background = "rgb(" + [255, 255, 255, 0.75].join(",") + ")";
+//"rgb(255,255,255,0.75)"
 bod.style.background = "rgb(" + [i1, i2, i3].join(",") + ")";
 rgbToHex(i1, i2, i3);
 head.addEventListener("click", function () {
+  //
   const a1 = document.getElementById("i1").value;
   const a2 = document.getElementById("i2").value;
   const a3 = document.getElementById("i3").value;
-  head.style.background = "rgb(" + [255, 255, 255, 0.75].join(",") + ")";
+
+  //document.body.style.backgroundColor=rgb(a,b,c);
+  bod.style.background = "rgb(" + a1 + "," + a2 + "," + a3 + ");";
   bod.style.background = "rgb(" + [a1, a2, a3].join(",") + ")";
   rgbToHex(a1, a2, a3);
 });

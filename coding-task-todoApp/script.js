@@ -3,18 +3,14 @@ const addTodo = document.querySelector("#addTodo");
 const addTodoBtn = document.querySelector("#addTodoBtn");
 const filterList = document.querySelector("#filterList");
 const rmvDone = document.querySelector("#rmvDone");
-
-let todos = JSON.parse(localStorage.getItem("actualstate")) || [
-  { description: "learn html", done: false },
-  { description: "learn css", done: true },
-];
-
-renderTodoList(todos);
-
+let counter = 0;
+let todos = JSON.parse(localStorage.getItem("actualstate")) || [];
 addTodoBtn.addEventListener("click", addObj);
 filterList.addEventListener("change", filterObj);
 rmvDone.addEventListener("click", removeDone);
+document.addEventListener("keypress", addObjByEnter);
 
+renderTodoList(todos);
 function renderTodoList(arr) {
   todoList.innerText = "";
   for (const currentTodo of arr) {
@@ -30,8 +26,8 @@ function renderTodoList(arr) {
     const label = document.createElement("label");
     label.textContent = currentTodo.description;
 
-    newLiEl.appendChild(label);
     newLiEl.appendChild(checkbox);
+    newLiEl.appendChild(label);
     todoList.appendChild(newLiEl);
   }
 }
@@ -39,7 +35,6 @@ function renderTodoList(arr) {
 function addObj() {
   const newTodo = {};
   const actualTodo = trimValue(addTodo.value);
-  console.log(todos);
   if (duplicateCheck(actualTodo) || !actualTodo.length > 0) {
     addTodo.value = "";
     addTodo.focus();
@@ -47,7 +42,6 @@ function addObj() {
   }
   newTodo.description = addTodo.value;
   newTodo.done = false;
-  //newTodo.id = todos[todos.length - 1].id + 1;
   todos.push(newTodo);
   renderTodoList(todos);
   addTodo.value = "";
@@ -114,4 +108,9 @@ function removeDone() {
 function trimValue(input) {
   const trimmedInput = input.trim();
   return trimmedInput;
+}
+function addObjByEnter(e) {
+  if (e.code === "Enter") {
+    addObj();
+  }
 }
